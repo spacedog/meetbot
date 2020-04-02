@@ -81,7 +81,7 @@ class SupybotConfigProxy(object):
         # We need to call the __init__ *after* we have rebound the
         # method to get variables from the config proxy.
         old_init = self.__C.__init__
-        new_init = types.MethodType(old_init.__func__, self, old_init.__self__.__class__)
+        new_init = types.MethodType(old_init.__func__, self)
         new_init(*args, **kwargs)
     
     def __getattr__(self, attrname):
@@ -122,7 +122,7 @@ class SupybotConfigProxy(object):
         # values).  This will slow things down a little bit, but
         # that's just the cost of duing business.
         if hasattr(value, 'im_func'):
-            return types.MethodType(value.__func__, self, value.__self__.__class__)
+            return types.MethodType(value.__func__, self)
         return value
 
 
