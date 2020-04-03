@@ -49,10 +49,10 @@ class Config(object):
     #
     # Where to store files on disk
     # Example:   logFileDir = '/home/richard/meetbot/'
-    logFileDir = '.'
+    logFileDir = os.environ['MEETBOT_LOG_FILEDIR']
     # The links to the logfiles are given this prefix
     # Example:   logUrlPrefix = 'http://rkd.zgib.net/meetbot/'
-    logUrlPrefix = ''
+    logUrlPrefix = os.environ['MEETBOT_LOG_URLPREFIX']
     # Give the pattern to save files into here.  Use %(channel)s for
     # channel.  This will be sent through strftime for substituting it
     # times, howover, for strftime codes you must use doubled percent
