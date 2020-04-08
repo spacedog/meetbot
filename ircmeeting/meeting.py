@@ -57,9 +57,9 @@ class Config(object):
     # channel.  This will be sent through strftime for substituting it
     # times, howover, for strftime codes you must use doubled percent
     # signs (%%).  This will be joined with the directories above.
-    filenamePattern = '%(channel)s/%%Y/%(channel)s.%%F-%%H.%%M'
+    filenamePattern = os.environ['MEETBOT_FILENAMEPATTERN']
     # Where to say to go for more information about MeetBot
-    MeetBotInfoURL = 'http://wiki.debian.org/MeetBot'
+    MeetBotInfoURL = os.environ['MEETBOT_INFOURL']
     # This is used with the #restrict command to remove permissions from files.
     RestrictPerm = stat.S_IRWXO|stat.S_IRWXG  # g,o perm zeroed
     # RestrictPerm = stat.S_IRWXU|stat.S_IRWXO|stat.S_IRWXG  #u,g,o perm zeroed
