@@ -75,8 +75,8 @@ class Config(object):
     # default voting options if none are given by the user
     defaultVoteOptions = ['Yes', 'No']
     # The channels which won't have date/time appended to the filename.
-    specialChannels = ("#meetbot-test", "#meetbot-test2")
-    specialChannelFilenamePattern = '%(channel)s/%(channel)s'
+    specialChannels = tuple(os.environ['MEETBOT_SPECIALCHANNELS'].split(","))
+    specialChannelFilenamePattern = os.environ['MEETBOT_SPECIALCHANNELS_FILENAMEPATTERN']
     # HTML irc log highlighting style.  `pygmentize -L styles` to list.
     pygmentizeStyle = 'friendly'
     # Timezone setting.  You can use friendly names like 'US/Eastern', etc.
